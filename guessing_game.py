@@ -3,7 +3,7 @@
 # ----------------
 import random
 
-print("This is a test.")
+print("That is a test.")
 rand_number = random.randrange(1, 100)
 is_win = False
 
