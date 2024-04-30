@@ -1,8 +1,9 @@
-#-----------------
+# -----------------
 # Guessing Game
 # ----------------
 import random
 
+print("This is a test.")
 rand_number = random.randrange(1, 100)
 is_win = False
 
@@ -27,4 +28,3 @@ for i in range(10):
 # if the user didn't win.
 if is_win == False:
     print("You didn't win.")
-
