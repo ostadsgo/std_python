@@ -1,19 +1,33 @@
 # -----------------
 # Guessing Game
 # ----------------
-import random
+from random import randrange
 
-print("new is a test.")
-rand_number = random.randrange(1, 100)
+
+def intro_message():
+    print("I am number between 1 to 99")
+    print("Try to guess me.")
+
+
+def get_user_guess():
+    user_guess = None
+    try:
+        user_guess = int(input("Your guess > "))
+    except ValueError:
+        print("The value is not a number.")
+    return user_guess
+
+
+rand_number = randrange(1, 100)
 is_win = False
 
-print("I am number between 1 to 99")
-print("Try to guess me.")
+intro_message()
 
-print(rand_number)
 
 for i in range(10):
-    user_guess = int(input("Your guess > "))
+    user_guess = get_user_guess()
+    if user_guess == None:
+        continue
 
     # Compare user input with random number.
     if user_guess > rand_number:
