@@ -18,6 +18,18 @@ def get_user_guess():
     return user_guess
 
 
+def compare(user_guess, rand_number):
+    try:
+        if user_guess > rand_number:
+            return 1
+        elif user_guess < rand_number:
+            return -1
+        else:
+            return 0
+    except TypeError:
+        print(f"The value `{user_guess}` is invalid")
+
+
 rand_number = randrange(1, 100)
 is_win = False
 
@@ -29,15 +41,16 @@ for i in range(10):
     if user_guess == None:
         continue
 
-    # Compare user input with random number.
-    if user_guess > rand_number:
-        print("Try lower.")
-    elif user_guess < rand_number:
+    result = compare(user_guess, rand_number)
+    if result == 0:
+        is_win = True
+        print(f"You win in {i} times.")
+        break
+    elif result == -1:
         print("Try higher")
     else:
-        print("You win.")
-        is_win = True
-        break
+        print("Try lower.")
+
 
 # if the user didn't win.
 if is_win == False:
